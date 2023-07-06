@@ -17,7 +17,7 @@ class Category(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key = True)
     category = db.Column(db.String, unique = True, nullable = False)
-    title = db.Column(db.String, unique = True, nullable = False)
+    # title = db.Column(db.String, unique = True, nullable = False)
 
     category_recipes = db.relationship('Category_recipe', backref = 'cateogry')
 
@@ -42,8 +42,8 @@ class Recipe(db.Model, SerializerMixin):
     picture = db.Column(db.Image, unique = True)
     ingredients = db.Column(db.String, unique = True, nullable = False)
     preparation = db.Column(db.String, unique = True, nullable = False)
-    tips = db.Column(db.String, unique = True, nullable = False)
-    reviews = db.Column(db.String, unique = True, nullable = False)
+    tips = db.Column(db.String, unique = True)
+    reviews = db.Column(db.String, unique = True)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 
